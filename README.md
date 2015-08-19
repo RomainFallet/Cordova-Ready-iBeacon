@@ -13,6 +13,10 @@ It provides by its own the device verification (to make sure the user device is 
 Only devices that are compatible with Bluetooth Low Energy (LE) can connect to iBeacons.<br />
 [The devices list is available here](http://www.bluetooth.com/Pages/Bluetooth-Smart-Devices-List.aspx)
 
+## Tested iBeacons
+I tested this script with the [IBKS105 iBeacon](http://ibeacon.accent-systems.com/shop/ibks105-kits).
+Feel free to indicates the model you use with success.
+
 ## Installation
 
 ##### Plugins
