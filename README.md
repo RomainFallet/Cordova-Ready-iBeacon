@@ -14,7 +14,8 @@ Only devices that are compatible with Bluetooth Low Energy (LE) can connect to i
 [The devices list is available here](http://www.bluetooth.com/Pages/Bluetooth-Smart-Devices-List.aspx)
 
 ## Tested iBeacons
-I tested this script with the [IBKS105 iBeacon](http://ibeacon.accent-systems.com/shop/ibks105-kits).
+• [IBKS105 iBeacon](http://ibeacon.accent-systems.com/shop/ibks105-kits) <br />
+• [Beaconinside](http://www.beaconinside.com/buy-ibeacon/) <br /><br />
 Feel free to indicates the model you use with success.
 
 ## Installation
