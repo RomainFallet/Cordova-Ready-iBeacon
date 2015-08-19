@@ -15,7 +15,8 @@ Seuls les appareils compatibles avec le Bluetooth Low Energy (LE) peuvent se con
 [Voir la liste des appareils compatibles](http://www.bluetooth.com/Pages/Bluetooth-Smart-Devices-List.aspx)
 
 ## Balises iBeacons testées
-Ce script a été testé avec la [balise iBeacon IBKS2015](http://ibeacon.accent-systems.com/shop/ibks105-kits).
+• [IBKS105 iBeacon](http://ibeacon.accent-systems.com/shop/ibks105-kits) <br />
+• [Beaconinside](http://www.beaconinside.com/buy-ibeacon/) <br /><br />
 N'hésitez pas à indiquer les modèles que vous avez utilisés avec succès.
 
 ## Installation
