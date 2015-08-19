@@ -14,6 +14,10 @@ Le script informe l'utilisateur si son appareil n’est pas compatible et demand
 Seuls les appareils compatibles avec le Bluetooth Low Energy (LE) peuvent se connecter aux balises iBeacons.<br />
 [Voir la liste des appareils compatibles](http://www.bluetooth.com/Pages/Bluetooth-Smart-Devices-List.aspx)
 
+## Balises iBeacons testées
+Ce script a été testé avec la [balise iBeacon IBKS2015](http://ibeacon.accent-systems.com/shop/ibks105-kits).
+N'hésitez pas à indiquer les modèles que vous avez utilisés avec succès.
+
 ## Installation
 
 ##### Plugins
