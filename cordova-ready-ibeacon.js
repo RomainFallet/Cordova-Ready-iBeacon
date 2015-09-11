@@ -252,7 +252,8 @@ var ibeacon = {
          * Resume event, it fires when an application is retrieved from the background.
          */
         document.addEventListener('resume', function() {
-	    	ibeacon._isWaiting = false;
+			window.plugins.spinnerDialog.hide();
+			ibeacon._isWaiting = false;
 	    }, false);
     },
 
