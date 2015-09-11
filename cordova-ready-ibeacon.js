@@ -253,7 +253,6 @@ var ibeacon = {
          */
         document.addEventListener('resume', function() {
 	    	ibeacon._isWaiting = false;
-	    	ibeacon.activateServices();
 	    }, false);
     },
 
