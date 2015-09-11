@@ -72,11 +72,11 @@ var ibeacon = {
             
             servicesActivationCancelledAndroidTitle: 'Désactiver les fonctionalités connectées ?',
             servicesActivationCancelledAndroidMessage: 'Si vous n\'activez pas le Bluetooth, les fonctionalités liées aux objets connectés vont être désactivées.\n\nÊtes-vous sûr ?',
-            servicesActivationCancelledAndroidButtons: 'Activer,Désactiver',
+            servicesActivationCancelledAndroidButtons: 'Non,Oui',
             
             servicesActivationCancelledIosTitle: 'Désactiver les fonctionalités connectées ?',
             servicesActivationCancelledIosMessage: 'Si vous n\'activez pas le Bluetooth et le Service de localisation, les fonctionalités liées aux objets connectés vont être désactivées.\n\nÊtes-vous sûr ?',
-            servicesActivationCancelledIosButtons: 'Activer,Désactiver'
+            servicesActivationCancelledIosButtons: 'Non,Oui'
             
             
 		},
@@ -113,11 +113,11 @@ var ibeacon = {
             
             servicesActivationCancelledAndroidTitle: 'Disable ibeacons features ?',
             servicesActivationCancelledAndroidMessage: 'If you do not enable Bluetooth, ibeacons features will be disabled.\n\nAre you sure ?',
-            servicesActivationCancelledAndroidButtons: 'Enable,Disable',
+            servicesActivationCancelledAndroidButtons: 'No,Yes',
             
             servicesActivationCancelledIosTitle: 'Disable ibeacons features ?',
             servicesActivationCancelledIosMessage: 'If you do not enable Bluetooth and Location Services, ibeacons features will be disabled.\n\nAre you sure ?',
-            servicesActivationCancelledIosButtons: 'Enable,Disable'
+            servicesActivationCancelledIosButtons: 'No,Yes'
 		}
 	},
 	
