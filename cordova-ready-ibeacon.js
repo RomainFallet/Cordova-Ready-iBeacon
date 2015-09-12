@@ -237,23 +237,6 @@ var ibeacon = {
          * An event that is fired when bluetooth 4.0 compatibility verification is completed
          */
         document.addEventListener('verificationComplete', ibeacon._verificationCompleteCallback, false);
-
-        /*
-         * Pause event, it fires when an application is put into the background.
-         */
-        document.addEventListener('pause', function() {
-	    	clearInterval(ibeacon._bluetoothInterval);
-	    	clearInterval(ibeacon._locationInterval);
-	    	clearInterval(ibeacon._locationAuthInterval);
-	    	ibeacon.stopScan();
-	    }, false);
-	    
-        /*
-         * Resume event, it fires when an application is retrieved from the background.
-         */
-        document.addEventListener('resume', function() {
-	    	ibeacon._isWaiting = false;
-	    }, false);
     },
 
 
@@ -429,7 +412,7 @@ var ibeacon = {
                         ibeacon._lexicons[ibeacon._lang].bluetoothNotEnabledAndroidErrorButtons
                     );
 			    }
-			    else if (device.platform.toLowerCase() === 'ios' && ibeacon._isWaiting === false) {
+			    else if (device.platform.toLowerCase() === 'ios' && ibeacon._isWaiting === false && localStorage.getItem('ibeaconFeaturesDisabled') !== '1') {
                     navigator.notification.confirm(
                         ibeacon._lexicons[ibeacon._lang].bluetoothNotEnabledIosErrorMessage,
                         ibeacon._onBluetoothConfirm,
@@ -518,7 +501,7 @@ var ibeacon = {
 	         * Check location status
 	         */
 	    	if (!isLocationEnabled) {
-			    if (ibeacon._isWaiting === false) {
+			    if (ibeacon._isWaiting === false && localStorage.getItem('ibeaconFeaturesDisabled') !== '1') {
                     navigator.notification.confirm(
                         ibeacon._lexicons[ibeacon._lang].locationNotEnabledIosErrorMessage,
                         ibeacon._onLocationConfirm,
@@ -577,26 +560,36 @@ var ibeacon = {
 	 */
     _locationAuthorization: function() {
         cordova.plugins.diagnostic.isLocationAuthorized(function(isLocationAuthorized) {
-	        /*
-	         * Transform isLocationEnabled is boolean variable
-	         */
-	        if (isLocationAuthorized === 0) { isLocationAuthorized = false; }
-	        else { isLocationAuthorized = true; }
-	        
-            /*
-             * Request location permission from user
-             */
-            cordova.plugins.locationManager.requestWhenInUseAuthorization();
-            
-			if (!isLocationAuthorized) {
-				clearInterval(ibeacon._locationAuthInterval);
-                navigator.notification.confirm(
-                    ibeacon._lexicons[ibeacon._lang].locationNotAuthorizedErrorMessage,
-                    ibeacon._onLocationAuthConfirm,
-                    ibeacon._lexicons[ibeacon._lang].locationNotAuthorizedErrorTitle,
-                    ibeacon._lexicons[ibeacon._lang].locationNotAuthorizedErrorButtons
-                );
-			}
+	        cordova.plugins.diagnostic.isLocationEnabledSetting(function(isLocationEnabled) {
+		        /*
+		         * Transform isLocationAuthorized is boolean variable
+		         */
+		        if (isLocationAuthorized === 0) { isLocationAuthorized = false; }
+		        else { isLocationAuthorized = true; }
+		        
+		        /*
+		         * Transform isLocationEnabled is boolean variable
+		         */
+		        if (isLocationEnabled === 0) { isLocationEnabled = false; }
+		        else { isLocationEnabled = true; }
+		        
+		        if (isLocationEnabled) {
+		            /*
+		             * Request location permission from user
+		             */
+		            cordova.plugins.locationManager.requestWhenInUseAuthorization();
+		            
+					if (!isLocationAuthorized) {
+						clearInterval(ibeacon._locationAuthInterval);
+		                navigator.notification.confirm(
+		                    ibeacon._lexicons[ibeacon._lang].locationNotAuthorizedErrorMessage,
+		                    ibeacon._onLocationAuthConfirm,
+		                    ibeacon._lexicons[ibeacon._lang].locationNotAuthorizedErrorTitle,
+		                    ibeacon._lexicons[ibeacon._lang].locationNotAuthorizedErrorButtons
+		                );
+					}
+		        }
+			});
         },function(e) { console.log('Error '+e); });
     },
     
@@ -655,7 +648,7 @@ var ibeacon = {
 	 */
     _onServicesActivationCancelConfirm: function(buttonIndex) {
 	    /*
-	     * If the user click on "Deactivate"
+	     * If the user click on "Desactivate"
 	     */
 		if (buttonIndex === 2) {
 			localStorage.setItem('ibeaconFeaturesDisabled', '1');
