@@ -254,14 +254,6 @@ var ibeacon = {
         document.addEventListener('resume', function() {
 	    	ibeacon._isWaiting = false;
 	    }, false);
-	    
-	    /*
-		 * An event that is fired when ibeacon component is disabled by the user
-		 */
-	    document.addEventListener('ibeaconDisabled', function() {
-			window.plugins.spinnerDialog.hide();
-			ibeacon._isWaiting = false;
-	    });
     },
 
 
