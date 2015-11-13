@@ -86,7 +86,7 @@ ibeacon.initialize({
 
 ## Début du scan
 Vous pouvez scanner les balises iBeacons en utilisant l’événement ``ìbeaconInitialized``` et la méthode ```startScan()``.
-Cette événement est déclenché au lancement de l’application puis à chaque fois que celle-ci revient au premier plan.
+Cette événement est déclenché à chaque fois que la méthode initialize est utilisée.
 ```javascript
 document.addEventListener('ibeaconInitialized', function() {
 	ibeacon.startScan();
